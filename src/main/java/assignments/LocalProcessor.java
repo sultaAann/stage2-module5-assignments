@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -17,10 +18,10 @@ import java.util.Scanner;
 public class LocalProcessor {
     private String processorName;
     private Long period = 10_000_000_000_000L;
-    protected String processorVersion;
+    private String processorVersion;
     private Integer valueOfCheap;
-    Scanner informationScanner;
-    static List<String> stringArrayList = new LinkedList<>();
+    private Scanner informationScanner;
+    static List<String> stringArrayList = new ArrayList<>();
 
     public LocalProcessor(String processorName, Long period, String processorVersion, Integer valueOfCheap,
                           Scanner informationScanner, List<String> stringArrayList) {
@@ -37,7 +38,7 @@ public class LocalProcessor {
 
     @ListIteratorAnnotation
     public void listiterator(LinkedList<String> stringList) {
-        stringArrayList = new LinkedList<>(stringList);
+        stringArrayList = new ArrayList<>(stringList);
         for (String el : stringArrayList) {
             System.out.println(el.hashCode());
         }
