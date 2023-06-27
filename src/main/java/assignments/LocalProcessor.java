@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.lang.StringBuilder;
 
 @Getter
 @Setter
@@ -37,15 +38,19 @@ public class LocalProcessor {
     }
 
     @ListIteratorAnnotation
-    public void listiterator(LinkedList<String> stringList) {
-        stringArrayList = new ArrayList<>(stringList);
-        for (String el : stringArrayList) {
-            System.out.println(el.hashCode());
+    public void listIterator(LinkedList<String> stringList) {
+        try {
+            stringArrayList = new ArrayList<>(stringList);
+            for (String el : stringArrayList) {
+                System.out.println(el.hashCode());
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
     @FullNameProcessorGeneratorAnnotation
-    public String fullnameProcessorgenerator(LinkedList<String> stringList) {
+    public String fullNameProcessorGenerator(LinkedList<String> stringList) {
         StringBuilder stringBuilder = new StringBuilder(processorName);
         for (String el : stringList) {
             stringBuilder.append(el);
@@ -55,7 +60,7 @@ public class LocalProcessor {
     }
 
     @ReadFullProcessorNameAnnotation
-    public void readfullprocessorname(File file) {
+    public void readFullProcessorName(File file) {
         try {
             informationScanner = new Scanner(file);
             StringBuilder sb = new StringBuilder();
